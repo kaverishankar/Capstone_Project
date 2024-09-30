@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { handledAPIGet, handledAPIPut } from '../apis/auth.js';
 
 const EditProduct = () => {
-    const { productSku } = useParams(); // Assuming you're using `sku` as the identifier
+    const { productSku } = useParams();
     const navigate = useNavigate();
     const [product, setProduct] = useState({
         name: '',
@@ -20,7 +20,7 @@ const EditProduct = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
-    // Fetch product details on component mount
+    
     useEffect(() => {
         const fetchProduct = async () => {
             try {
@@ -36,12 +36,11 @@ const EditProduct = () => {
         fetchProduct();
     }, [productSku]);
 
-    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await handledAPIPut(`/products/${productSku}`, product);
-            navigate('/'); // Redirect to product listing page or wherever appropriate
+            navigate('/'); 
         } catch (err) {
             setError(err.message);
         }
@@ -61,7 +60,6 @@ const EditProduct = () => {
         }
     };
 
-    // Render loading or error state
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
