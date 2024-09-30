@@ -21,7 +21,7 @@ const ProtectedComponent = ({ Component }) => {
   const { authenticated } = useSelector((state) => state.account);
 
   if (authenticated) {
-    return Component;  // Ensure this matches the prop type
+    return Component; 
   }
 
   return <Navigate to="/login" />;
