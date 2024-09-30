@@ -1,4 +1,4 @@
-import './layout.css';
+import './Layout.css';
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import logo from './Logo.png';
 import { useSelector, useDispatch } from 'react-redux';
