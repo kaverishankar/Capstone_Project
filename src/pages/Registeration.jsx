@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from './Logo.png'; 
-import './layout.css'; 
+import './Layout.css'; 
 import { handledAPIPost } from "../apis/auth.js";
 
 const RegisterPage = () => {
