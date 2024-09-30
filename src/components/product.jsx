@@ -50,7 +50,7 @@ const Product = ({ name, sku, images, price, description, category, sellerInfo }
                     style={{ height: 400, objectFit: 'cover' }} 
                     alt={`${name} - ${index + 1}`}
                     onError={({ currentTarget }) => {
-                      currentTarget.onerror = null; // prevents looping
+                      currentTarget.onerror = null; 
                       currentTarget.src = DEFAULT_IMAGE_URL; 
                     }}
                   />
@@ -60,11 +60,11 @@ const Product = ({ name, sku, images, price, description, category, sellerInfo }
            
             <button className="carousel-control-prev" type="button" data-bs-target={`#carousel-${sku}`} data-bs-slide="prev" aria-label="Previous slide">
               <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span className="sr-only">Previous</span> {/* For screen readers */}
+              <span className="sr-only">Previous</span> 
             </button>
             <button className="carousel-control-next" type="button" data-bs-target={`#carousel-${sku}`} data-bs-slide="next" aria-label="Next slide">
               <span className="carousel-control-next-icon" aria-hidden="true"></span>
-              <span className="sr-only">Next</span> {/* For screen readers */}
+              <span className="sr-only">Next</span>
             </button>
           </div>
         </div>
@@ -117,7 +117,7 @@ const Product = ({ name, sku, images, price, description, category, sellerInfo }
 Product.propTypes = {
   name: PropTypes.string,
   sku: PropTypes.string,
-  images: PropTypes.arrayOf(PropTypes.string), // Remove isRequired to handle missing images gracefully
+  images: PropTypes.arrayOf(PropTypes.string), 
   price: PropTypes.number,
   description: PropTypes.string,
   category: PropTypes.oneOf(['Apartment', 'Villa', 'Cottage', 'House']),
@@ -126,7 +126,7 @@ Product.propTypes = {
     userId: PropTypes.string,
     email: PropTypes.string,
     address: PropTypes.string
-  }), // Removed isRequired since you're checking with optional chaining
+  }), 
 };
 
 
