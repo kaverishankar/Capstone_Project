@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from './logo.png'; 
+import logo from './Logo.png'; 
 import './layout.css'; 
 import { handledAPIPost } from "../apis/auth.js";
 
