@@ -67,7 +67,7 @@ const ProductForm = ({ existingProduct, isEdit }) => {
   return (
     <div className="container d-flex justify-content-center align-items-center vw-100 m-5">
       <div className="w-50 p-4 border rounded shadow-sm">
-        <h2 className='text-danger'>{isEdit ? 'Edit Product' : 'Create New Property'}</h2>
+        <h2 className='text-danger'>{isEdit ? 'Edit Product' : 'Create New Product'}</h2>
         <form onSubmit={handleSubmit}>
 
           <div className="mb-3">
