@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {jwtDecode} from "jwt-decode";
-import logo from './logo.png';
+import logo from './Logo.png';
 import { Link } from 'react-router-dom';
 import './layout.css';
 import { handledAPIPost } from '../apis/auth';
