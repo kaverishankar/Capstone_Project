@@ -13,7 +13,7 @@ const ProductDis = ({ name, price, images, sku, userInfo, onDelete }) => {
             try {
                 await handledAPIDelete(`/products/${sku}`);
                 alert('Property deleted successfully');
-                onDelete(sku); // Notify parent to remove from list
+                onDelete(sku); 
             } catch (error) {
                 console.error('Failed to delete product:', error);
                 alert('Error deleting product');
@@ -123,7 +123,7 @@ const ProductList = () => {
                         >
                             <button className="btn btn-danger p-3" onClick={() => setFormState(false)}>X</button>
                         </div>
-                        <ProductForm onSubmit={handleProductAdded} /> {/* Pass the handler to ProductForm */}
+                        <ProductForm onSubmit={handleProductAdded} /> 
                     </div>
                 </div>
             )}
