@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import {jwtDecode} from "jwt-decode";
 import logo from './Logo.png';
 import { Link } from 'react-router-dom';
-import './layout.css';
+import './Layout.css';
 import { handledAPIPost } from '../apis/auth';
 
 const Footer = () => { 
