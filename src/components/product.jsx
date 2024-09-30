@@ -7,7 +7,7 @@ const DEFAULT_IMAGE_URL = 'https://img.freepik.com/premium-vector/default-image-
 
 const Product = ({ name, sku, images, price, description, category, sellerInfo }) => {
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(1); // Add quantity state
+  const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (e) => {
     setQuantity(Number(e.target.value));
@@ -16,7 +16,7 @@ const Product = ({ name, sku, images, price, description, category, sellerInfo }
   const handleAddToCart = () => {
     dispatch({
       type: 'cart_add',
-      product: { name, sku, images, price, description, category, sellerInfo, qty: quantity }, // Pass quantity
+      product: { name, sku, images, price, description, category, sellerInfo, qty: quantity }, 
     });
   };
 
@@ -40,7 +40,6 @@ const Product = ({ name, sku, images, price, description, category, sellerInfo }
     <div className="card m-2 d-inline-block zoom-in-animation" style={{ maxWidth: '1000px', margin: '20px auto' }}>
       <div className='row'>
         <div className="col">
-          {/* Product Carousel */}
           <div id={`carousel-${sku}`} className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
               {(images && images.length > 0 ? images : [DEFAULT_IMAGE_URL]).map((image, index) => (
@@ -48,17 +47,17 @@ const Product = ({ name, sku, images, price, description, category, sellerInfo }
                   <img
                     src={image}
                     className="d-block w-100"
-                    style={{ height: 400, objectFit: 'cover' }} // Remove width to fit carousel dimensions
+                    style={{ height: 400, objectFit: 'cover' }} 
                     alt={`${name} - ${index + 1}`}
                     onError={({ currentTarget }) => {
                       currentTarget.onerror = null; // prevents looping
-                      currentTarget.src = DEFAULT_IMAGE_URL; // Use constant for default image
+                      currentTarget.src = DEFAULT_IMAGE_URL; 
                     }}
                   />
                 </div>
               ))}
             </div>
-            {/* Carousel Controls */}
+           
             <button className="carousel-control-prev" type="button" data-bs-target={`#carousel-${sku}`} data-bs-slide="prev" aria-label="Previous slide">
               <span className="carousel-control-prev-icon" aria-hidden="true"></span>
               <span className="sr-only">Previous</span> {/* For screen readers */}
@@ -70,7 +69,6 @@ const Product = ({ name, sku, images, price, description, category, sellerInfo }
           </div>
         </div>
 
-        {/* Product Details */}
         <div className='col'>
           <div className="card-body">
             <h4 className="card-title">{name}</h4>
@@ -89,7 +87,6 @@ const Product = ({ name, sku, images, price, description, category, sellerInfo }
             <h5>Seller Information</h5>
             <p>{sellerInfo?.name || "Unknown Seller"}</p>
 
-            {/* Quantity Input */}
             <div className="mb-3">
               <label htmlFor="quantity" className="form-label">Quantity:</label>
               <input
