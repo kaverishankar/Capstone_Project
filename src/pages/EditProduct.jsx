@@ -1,8 +1,7 @@
-// pages/EditProduct.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { handledAPIGet } from '../apis/auth.js';
-import ProductForm from '../components/prodForm.jsx'; // Ensure the correct import
+import ProductForm from '../components/prodForm.jsx';
 
 const EditProduct = () => {
     const { productSku } = useParams();
