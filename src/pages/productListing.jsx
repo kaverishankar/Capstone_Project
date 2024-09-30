@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { handledAPIGet, handledAPIDelete } from '../apis/auth.js';
-import ProductForm from '../components/prodForm.jsx'; // Adjust the path if necessary
+import ProductForm from '../components/prodForm.jsx'; 
 
 const ProductDis = ({ name, price, images, sku, userInfo, onDelete }) => {
 
@@ -82,7 +82,7 @@ const ProductList = () => {
     };
 
     const handleProductAdded = (newProduct) => {
-        setProducts((prevProducts) => [...prevProducts, newProduct]); // Add new product to state
+        setProducts((prevProducts) => [...prevProducts, newProduct]);
         setFormState(false); // Close the form after adding product
         alert('Product added successfully!'); // Feedback to user
     };
@@ -130,7 +130,7 @@ const ProductList = () => {
             <div className='container m-2 pl-5'>
                 {products.map((product) => (
                     userInfo.userType === 'seller' ? (
-                        <ProductDis key={product.sku} {...product} userInfo={userInfo} onDelete={handleProductDelete} /> // Pass handleProductDelete as onDelete prop
+                        <ProductDis key={product.sku} {...product} userInfo={userInfo} onDelete={handleProductDelete} /> 
                     ) : (
                         <Link key={product.sku} to={`/product/${product.sku}`}>
                             <ProductDis {...product} userInfo={userInfo} onDelete={() => { }} />
