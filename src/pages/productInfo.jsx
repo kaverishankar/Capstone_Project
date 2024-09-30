@@ -34,7 +34,6 @@ const ProductInfo = () => {
     <div className="container m-4">
       <h1 className='text-danger'>Property Info</h1>
       <p>SKU: {productSku}</p>
-      {/* Individual product information goes here */}
       <Product {...currentProduct} />
     </div>
   );
