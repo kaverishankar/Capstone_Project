@@ -1,4 +1,3 @@
-// components/ProductForm.jsx
 import React, { useState, useEffect } from 'react';
 import { handledAPIPost, handledAPIPut } from '../apis/auth.js';
 
@@ -7,7 +6,7 @@ const ProductForm = ({ existingProduct, isEdit }) => {
     name: existingProduct?.name || '',
     sku: existingProduct?.sku || '',
     price: existingProduct?.price || '',
-    images: existingProduct?.images.join(', ') || '', // Assuming images is an array
+    images: existingProduct?.images.join(', ') || '', 
     description: existingProduct?.description || '',
     category: existingProduct?.category || 'Apartment',
   });
@@ -18,14 +17,13 @@ const ProductForm = ({ existingProduct, isEdit }) => {
         name: existingProduct.name,
         sku: existingProduct.sku,
         price: existingProduct.price,
-        images: existingProduct.images.join(', '), // Convert array back to string for input
+        images: existingProduct.images.join(', '), 
         description: existingProduct.description,
         category: existingProduct.category,
       });
     }
   }, [existingProduct]);
 
-  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -34,11 +32,9 @@ const ProductForm = ({ existingProduct, isEdit }) => {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Convert images string to array
     const productData = {
       ...formData,
       images: formData.images.split(',').map((img) => img.trim()),
@@ -46,9 +42,9 @@ const ProductForm = ({ existingProduct, isEdit }) => {
 
     if (isEdit) {
       // Call update API instead
-      await handledAPIPut(`/products/${formData.sku}`, productData); // Update product by SKU
+      await handledAPIPut(`/products/${formData.sku}`, productData); 
     } else {
-      await handledAPIPost("/products", productData); // Create new product
+      await handledAPIPost("/products", productData); 
     }
 
     // Clear form after submission
@@ -73,7 +69,7 @@ const ProductForm = ({ existingProduct, isEdit }) => {
       <div className="w-50 p-4 border rounded shadow-sm">
         <h2 className='text-danger'>{isEdit ? 'Edit Product' : 'Create New Property'}</h2>
         <form onSubmit={handleSubmit}>
-          {/* Name Field */}
+
           <div className="mb-3">
             <label htmlFor="formName" className="form-label">
               Name
@@ -90,7 +86,6 @@ const ProductForm = ({ existingProduct, isEdit }) => {
             />
           </div>
 
-          {/* SKU Field */}
           <div className="mb-3">
             <label htmlFor="formSKU" className="form-label">
               SKU
@@ -107,7 +102,6 @@ const ProductForm = ({ existingProduct, isEdit }) => {
             />
           </div>
 
-          {/* Price Field */}
           <div className="mb-3">
             <label htmlFor="formPrice" className="form-label">
               Price
@@ -124,7 +118,6 @@ const ProductForm = ({ existingProduct, isEdit }) => {
             />
           </div>
 
-          {/* Images Field */}
           <div className="mb-3">
             <label htmlFor="formImages" className="form-label">
               Images (URLs separated by commas)
@@ -141,7 +134,6 @@ const ProductForm = ({ existingProduct, isEdit }) => {
             />
           </div>
 
-          {/* Description Field */}
           <div className="mb-3">
             <label htmlFor="formDescription" className="form-label">
               Description
@@ -158,7 +150,6 @@ const ProductForm = ({ existingProduct, isEdit }) => {
             ></textarea>
           </div>
 
-          {/* Category Field */}
           <div className="mb-3">
             <label htmlFor="formCategory" className="form-label">
               Category
