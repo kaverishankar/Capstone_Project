@@ -1,6 +1,6 @@
 import './layout.css';
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import logo from './logo.png';
+import logo from './Logo.png';
 import { useSelector, useDispatch } from 'react-redux';
 
 const CartLink = () => {
