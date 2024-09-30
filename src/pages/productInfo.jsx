@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Product from '../components/Product.jsx';
+import Product from '../components/product.jsx';
 import { handledAPIGet } from "../apis/auth.js";
 import Loader from "../components/Loader.jsx";
 
